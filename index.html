@@ -8,13 +8,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<img class="wave" src="img/empleo.png">
+	 <img class="wave" src="img/empleo.png">
 	<div class="container">
 		<div class="q">			
 		</div>
 		<div class="login-content">
-			<form action="index.html">
-				<img src="img/empleos2.png">
+			<form action="valida.php" method="POST">
+				 <!--<img src="img/empleos2.png">-->
 				<h3 class="title">Iniciar sesion</h3>
            		<div class="input-div one">
            		   <div class="i">
@@ -22,7 +22,7 @@
            		   </div>
            		   <div class="div">
            		   		<h5>Correo</h5>
-           		   		<input type="text" class="input">
+           		   		<input type="text" class="input" name="usuario">
            		   </div>
            		</div>
            		<div class="input-div pass">
@@ -31,7 +31,7 @@
            		   </div>
            		   <div class="div">
            		    	<h5>Contraseña</h5>
-           		    	<input type="password" class="input">
+           		    	<input type="password" class="input" name="contra"> 
             	   </div>
             	</div>
             	<a>No tienes una cuenta?</a><a href="#">crear</a>
