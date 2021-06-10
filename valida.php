@@ -20,7 +20,7 @@ if($correcto == 1)
 {
 session_start();
 $_SESSION['usuario']=$usuario;
-echo "<script language='javascript'>window.location='principal.php'</script>;";
+echo "<script language='javascript'>window.location='principal.html'</script>;";
 }
 else if($correcto == 0)
 {
