@@ -1,55 +1,44 @@
-<?php
-// Si existe la variable contra
-if(isset($_POST["contra"]))
-{
-// asignamos a la variable usuariob el contenido del input usuario
-//pasado por post
-$usuariob=$_POST['usuario'];
-// asignamos a la variable contrasenab el contenido del input contra
-//pasado por post
-$contrasenab=$_POST['contra'];
-//Llamamos a la pagina db dentro del directorio paginas, la cual
-//tiene el procedimiento de conexión a la base de datos
-require('paginas/db.php');
-/* asignamos a la variable conecta el resultado de la conexión a la bdd */
-$conecta=conectar();
-// realizamos una conulta para determinar si el usuario y contraseña xisten
-$acceso="SELECT *from usuarios where usuario='$usuariob'and
-contrasena='$contrasenab' ";
-$correcto=0;
-$resultado=mysqli_query($conecta,$acceso);
-// realizamos el recorrido a la base de datos para encontrar el valor
-// si se encuentra, la variable correcto vale 1. Guardamos en la variable
-nombreusuario
-// el valor deñ campo nombreusuario, en contra el valor del campo contrasena
-y en
-// usario el usuario.
-while ($data = mysqli_fetch_assoc($resultado))
-{
-$nombreusuario=$data['nombreusuario'];
-$contra=$data['contrasena'];
-$usuario=$data['usuario'];
-$correcto=1;
-}
-
-//cerramos la conexión a la base de datos.
-mysqli_close($conecta);
-//si se encontró el registro...
-if($correcto == 1)
-{
-//Iniciamos la sesión...
-session_start();
-$_SESSION['nombreusuario']=$nombreusuario;
-// abrimos la página (con javascript) principal del directorio paginas en la ventana actual
-echo "<script
-language='javascript'>window.location='/principal.php'</script>;";
-}
-// Si no se encontró el registro
-else if($correcto == 0)
-{
-// abrimos la página (con javascript) index del directorio actual en la ventana actual 5
-echo "<script
-language='javascript'>window.location='index.php'</script>;";
-}
-}
-?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	 <img class="wave" src="img/empleo.png">
+	<div class="container">
+		<div class="q">			
+		</div>
+		<div class="login-content">
+			<form action="valida.php" method="POST">
+				 <!--<img src="img/empleos2.png">-->
+				<h3 class="title">Iniciar sesion</h3>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>Correo</h5>
+           		   		<input type="text" class="input" name="usuario">
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Contraseña</h5>
+           		    	<input type="password" class="input" name="contra"> 
+            	   </div>
+            	</div>
+            	<a>No tienes una cuenta?</a><a href="#">crear</a>
+            	<input type="submit" class="btn" value="Ingresar">
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
