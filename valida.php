@@ -9,6 +9,7 @@ $resultado=mysqli_query($conecta,$acceso);
 
 while ($data = mysqli_fetch_assoc($resultado))
 {
+$nombreusuario=$data['nombreusuario'];
 $contra=$data['contrasena'];
 $usuario=$data['usuario'];
 $correcto=1;
@@ -19,11 +20,11 @@ if($correcto == 1)
 {
 session_start();
 $_SESSION['usuario']=$usuario;
-echo "oa";
+echo "<script language='javascript'>window.location='principal.php'</script>;";
 }
 else if($correcto == 0)
 {
-echo "aios";
+echo "<script language='javascript'>window.location='index.php'</script>;";
 }
 
 ?>
