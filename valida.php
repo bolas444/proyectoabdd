@@ -9,7 +9,6 @@ $resultado=mysqli_query($conecta,$acceso);
 
 while ($data = mysqli_fetch_assoc($resultado))
 {
-$nombreusuario=$data['nombreusuario'];
 $contra=$data['contrasena'];
 $usuario=$data['usuario'];
 $correcto=1;
