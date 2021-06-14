@@ -20,11 +20,11 @@ if($correcto == 1)
 {
 session_start();
 $_SESSION['usuario']=$usuario;
-echo "<script language='javascript'>window.location='principal.php'</script>;";
+echo "oa";
 }
 else if($correcto == 0)
 {
-echo "<script language='javascript'>window.location='index.php'</script>;";
+echo "aios";
 }
 
 ?>
